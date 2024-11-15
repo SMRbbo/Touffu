@@ -154,7 +154,7 @@ function scan{
             $buttone.Size = New-Object System.Drawing.Size(360, 30)
             $buttone.Add_Click({
 
-#### Fenêtre de selection du DISM ####
+#### Fenetre de selection du DISM ####
 
                     $form21 = New-Object System.Windows.Forms.Form
                     $form21.Text = "Selectionner votre DISM"
@@ -183,7 +183,7 @@ function scan{
                     $DISMHelp.Text = 'Aide DISM'
                     $DISMHelp.Add_Click({
 
-                                        #### Fenêtre d'aide au DISM ####
+                                        #### Fenetre d'aide au DISM ####
 
                                         $form212 = New-Object System.Windows.Forms.Form
                                         $form212.Text = "Aide au DISM"
