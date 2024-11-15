@@ -11,7 +11,7 @@ function makeshortcut{
             $form3.StartPosition = "CenterScreen"
 
             $buttona = New-Object System.Windows.Forms.Button
-            $buttona.Text = "a) Icône eteindre"
+            $buttona.Text = "a) Icone eteindre"
             $buttona.Location = New-Object System.Drawing.Point(10, 10)
             $buttona.Size = New-Object System.Drawing.Size(360, 30)
             $buttona.Add_Click(
@@ -28,7 +28,7 @@ function makeshortcut{
             $form3.Controls.Add($buttona)    
 
             $buttonb = New-Object System.Windows.Forms.Button
-            $buttonb.Text = "b) Icône redemarrage"
+            $buttonb.Text = "b) Icone redemarrage"
             $buttonb.Location = New-Object System.Drawing.Point(10, 50)
             $buttonb.Size = New-Object System.Drawing.Size(360, 30)
             $buttonb.Add_Click(
@@ -45,7 +45,7 @@ function makeshortcut{
             $form3.Controls.Add($buttonb) 
             
             $buttonc = New-Object System.Windows.Forms.Button
-            $buttonc.Text = "c) Icône veille"
+            $buttonc.Text = "c) Icone veille"
             $buttonc.Location = New-Object System.Drawing.Point(10, 90)
             $buttonc.Size = New-Object System.Drawing.Size(360, 30)
             $buttonc.Add_Click(
@@ -62,7 +62,7 @@ function makeshortcut{
             $form3.Controls.Add($buttonc)
             
             $buttond = New-Object System.Windows.Forms.Button
-            $buttond.Text = "d) Icône deconnexion"
+            $buttond.Text = "d) Icone deconnexion"
             $buttond.Location = New-Object System.Drawing.Point(10, 130)
             $buttond.Size = New-Object System.Drawing.Size(360, 30)
             $buttond.Add_Click(
@@ -108,7 +108,7 @@ function scan{
             $label = New-Object System.Windows.Forms.Label
             $label.Location = New-Object System.Drawing.Point(10,50)
             $label.Size = New-Object System.Drawing.Size(280,20)
-            $label.Text = "Effectuer contrôle du magasin :"
+            $label.Text = "Effectuer controle du magasin :"
             $form2.Controls.Add($label)
             $buttonb = New-Object System.Windows.Forms.Button
             $buttonb.Text = "b) DISM /Online /Cleanup-image /Scanhealth"
@@ -353,7 +353,7 @@ function event{
                     $labeltype = New-Object System.Windows.Forms.Label
                     $labeltype.Location = New-Object System.Drawing.Point(20,20)
                     $labeltype.Size = New-Object System.Drawing.Size(150,30)
-                    $labeltype.Text = "Quel type d'evènement ?"
+                    $labeltype.Text = "Quel type d'evenement ?"
                     $form71.Controls.Add($labeltype)
 
                             $typebox = New-Object System.Windows.Forms.combobox
@@ -537,10 +537,10 @@ function Show-MenuForm {
     })
     $form.Controls.Add($button2)
 
-#### Menu des scan système ####
+#### Menu des scan systeme ####
 
     $button3 = New-Object System.Windows.Forms.Button
-    $button3.Text = "3) Scan système"
+    $button3.Text = "3) Scan systeme"
     $button3.Location = New-Object System.Drawing.Point(10, 90)
     $button3.Size = New-Object System.Drawing.Size(360, 30)
     $button3.Add_Click({
@@ -584,7 +584,7 @@ function Show-MenuForm {
 #### Obs event ####
 
     $button7 = New-Object System.Windows.Forms.Button
-    $button7.Text = "7) Resortir des evènements"
+    $button7.Text = "7) Resortir des evenements"
     $button7.Location = New-Object System.Drawing.Point(10, 250)
     $button7.Size = New-Object System.Drawing.Size(360, 30)
     $button7.Add_Click({
