@@ -11,13 +11,13 @@ function makeshortcut{
             $form3.StartPosition = "CenterScreen"
 
             $buttona = New-Object System.Windows.Forms.Button
-            $buttona.Text = "a) Icône éteindre"
+            $buttona.Text = "a) Icône eteindre"
             $buttona.Location = New-Object System.Drawing.Point(10, 10)
             $buttona.Size = New-Object System.Drawing.Size(360, 30)
             $buttona.Add_Click(
                 {
                     $SourceFilePath = "shutdown.exe"
-                    $ShortcutPath = [System.Environment]::GetFolderPath('Desktop')+"\Éteindre.lnk"
+                    $ShortcutPath = [System.Environment]::GetFolderPath('Desktop')+"\eteindre.lnk"
                     $WScriptObj = New-Object -ComObject ("WScript.Shell")
                     $shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
                     $Shortcut.Arguments = "/p"
@@ -28,13 +28,13 @@ function makeshortcut{
             $form3.Controls.Add($buttona)    
 
             $buttonb = New-Object System.Windows.Forms.Button
-            $buttonb.Text = "b) Icône redémarrage"
+            $buttonb.Text = "b) Icône redemarrage"
             $buttonb.Location = New-Object System.Drawing.Point(10, 50)
             $buttonb.Size = New-Object System.Drawing.Size(360, 30)
             $buttonb.Add_Click(
                 {
                     $SourceFilePath = "shutdown.exe"
-                    $ShortcutPath = [System.Environment]::GetFolderPath('Desktop')+"\Redémarrage.lnk"
+                    $ShortcutPath = [System.Environment]::GetFolderPath('Desktop')+"\Redemarrage.lnk"
                     $WScriptObj = New-Object -ComObject ("WScript.Shell")
                     $shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
                     $Shortcut.Arguments = "/r /t 0"
@@ -62,13 +62,13 @@ function makeshortcut{
             $form3.Controls.Add($buttonc)
             
             $buttond = New-Object System.Windows.Forms.Button
-            $buttond.Text = "d) Icône déconnexion"
+            $buttond.Text = "d) Icône deconnexion"
             $buttond.Location = New-Object System.Drawing.Point(10, 130)
             $buttond.Size = New-Object System.Drawing.Size(360, 30)
             $buttond.Add_Click(
                 {
                     $SourceFilePath = "C:\Windows\System32\shutdown.exe /l"
-                    $ShortcutPath = [System.Environment]::GetFolderPath('Desktop')+"\Déconnexion.lnk"
+                    $ShortcutPath = [System.Environment]::GetFolderPath('Desktop')+"\Deconnexion.lnk"
                     $WScriptObj = New-Object -ComObject ("WScript.Shell")
                     $shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
                     $shortcut.TargetPath = $SourceFilePath
@@ -122,7 +122,7 @@ function scan{
             $label = New-Object System.Windows.Forms.Label
             $label.Location = New-Object System.Drawing.Point(10,110)
             $label.Size = New-Object System.Drawing.Size(280,20)
-            $label.Text = "Savoir si le magasin est réparable :"
+            $label.Text = "Savoir si le magasin est reparable :"
             $form2.Controls.Add($label)
             $buttonc = New-Object System.Windows.Forms.Button
             $buttonc.Text = "c) DISM /Online /Cleanup-image /Checkhealth"
@@ -136,7 +136,7 @@ function scan{
             $label = New-Object System.Windows.Forms.Label
             $label.Location = New-Object System.Drawing.Point(10,170)
             $label.Size = New-Object System.Drawing.Size(280,20)
-            $label.Text = "Réparer le magasin :"
+            $label.Text = "Reparer le magasin :"
             $form2.Controls.Add($label)
             $buttond = New-Object System.Windows.Forms.Button
             $buttond.Text = "d) DISM /Online /Cleanup-image /Restorehealth"
@@ -154,10 +154,10 @@ function scan{
             $buttone.Size = New-Object System.Drawing.Size(360, 30)
             $buttone.Add_Click({
 
-#### Fenêtre de sélection du DISM ####
+#### Fenêtre de selection du DISM ####
 
                     $form21 = New-Object System.Windows.Forms.Form
-                    $form21.Text = "Sélectionner votre DISM"
+                    $form21.Text = "Selectionner votre DISM"
                     $form21.Size = New-Object System.Drawing.Size(500, 250)
                     $form21.StartPosition = "CenterScreen"
 
@@ -280,7 +280,7 @@ function killapp{
             $labelapp = New-Object System.Windows.Forms.Label
             $labelapp.Location = New-Object System.Drawing.Point(10,20)
             $labelapp.Size = New-Object System.Drawing.Size(280,20)
-            $labelapp.Text = 'Sélectionner une application (Active)'
+            $labelapp.Text = 'Selectionner une application (Active)'
             $form4.Controls.Add($labelapp)
 
             $ComboBox = New-Object System.Windows.Forms.ComboBox
@@ -290,12 +290,12 @@ function killapp{
             $listapp = Get-Process | Where-Object {$_.MainWindowTitle} | Select-Object Name, Description | Group-Object Name | Foreach-Object {$_.Group | Select-Object -First 1}
             $ComboBox.DataSource = $listapp | Foreach-Object {"$($_.Name)-$($_.Description)"}
 
-#### Relance app planté ####
+#### Relance app plante ####
 
             $labelapp2 = New-Object System.Windows.Forms.Label
             $labelapp2.Location = New-Object System.Drawing.Point(10,90)
             $labelapp2.Size = New-Object System.Drawing.Size(280,20)
-            $labelapp2.Text = 'Sélectionner une application (Planté)'
+            $labelapp2.Text = 'Selectionner une application (Plante)'
             $form4.Controls.Add($labelapp2)
 
             $ComboBox2 = New-Object System.Windows.Forms.ComboBox
@@ -328,7 +328,7 @@ function killapp{
 function event{
 
         $form71 = New-Object System.Windows.Forms.Form
-        $form71.Text = "Filtrage des éléments"
+        $form71.Text = "Filtrage des elements"
         $form71.Size = New-Object System.Drawing.Size(350, 250)
         $form71.StartPosition = "CenterScreen"
 
@@ -353,7 +353,7 @@ function event{
                     $labeltype = New-Object System.Windows.Forms.Label
                     $labeltype.Location = New-Object System.Drawing.Point(20,20)
                     $labeltype.Size = New-Object System.Drawing.Size(150,30)
-                    $labeltype.Text = "Quel type d'évènement ?"
+                    $labeltype.Text = "Quel type d'evènement ?"
                     $form71.Controls.Add($labeltype)
 
                             $typebox = New-Object System.Windows.Forms.combobox
@@ -377,7 +377,7 @@ function event{
                     $labeldatestart = New-Object System.Windows.Forms.Label
                     $labeldatestart.Location = New-Object System.Drawing.Point(20,90)
                     $labeldatestart.Size = New-Object System.Drawing.Size(140,40)
-                    $labeldatestart.Text = "Date de début (par défaut aujourd'hui) ? (DD/MM/YYYY)"
+                    $labeldatestart.Text = "Date de debut (par defaut aujourd'hui) ? (DD/MM/YYYY)"
                     $form71.Controls.Add($labeldatestart)
                         
                             $eventboxstart = New-Object System.Windows.Forms.textbox
@@ -416,7 +416,7 @@ function event{
                     $eventout = Get-WinEvent -LogName $typeevent | Where-Object {($_.LevelDisplayName -eq $lvl) -and ($_.TimeCreated -lt $datestart) -and ($_.TimeCreated -gt $dateend)}
               
                     $form711 = New-Object System.Windows.Forms.Form
-                    $form711.Text = "Résultat recherche"
+                    $form711.Text = "Resultat recherche"
                     $form711.Size = New-Object System.Drawing.Size(720, 490)
                     $form711.StartPosition = "CenterScreen"
                     $Textboxeventout = New-Object System.Windows.Forms.Textbox
@@ -526,10 +526,10 @@ function Show-MenuForm {
 
     $form.Controls.Add($button1)
 
-#### Création des raccourcis ####
+#### Creation des raccourcis ####
 
     $button2 = New-Object System.Windows.Forms.Button
-    $button2.Text = "2) Création raccourcis"
+    $button2.Text = "2) Creation raccourcis"
     $button2.Location = New-Object System.Drawing.Point(10, 50)
     $button2.Size = New-Object System.Drawing.Size(360, 30)
     $button2.Add_Click({
@@ -562,7 +562,7 @@ function Show-MenuForm {
 #### Relance du services d'imp ####
 
     $button5 = New-Object System.Windows.Forms.Button
-    $button5.Text = "5) Redémarrer le service d'impression"
+    $button5.Text = "5) Redemarrer le service d'impression"
     $button5.Location = New-Object System.Drawing.Point(10, 170)
     $button5.Size = New-Object System.Drawing.Size(360, 30)
     $button5.Add_Click({
@@ -584,7 +584,7 @@ function Show-MenuForm {
 #### Obs event ####
 
     $button7 = New-Object System.Windows.Forms.Button
-    $button7.Text = "7) Resortir des évènements"
+    $button7.Text = "7) Resortir des evènements"
     $button7.Location = New-Object System.Drawing.Point(10, 250)
     $button7.Size = New-Object System.Drawing.Size(360, 30)
     $button7.Add_Click({
@@ -595,7 +595,7 @@ function Show-MenuForm {
 #### DL App ####
 
     $button7 = New-Object System.Windows.Forms.Button
-    $button7.Text = "8) Télécharger application"
+    $button7.Text = "8) Telecharger application"
     $button7.Location = New-Object System.Drawing.Point(10, 290)
     $button7.Size = New-Object System.Drawing.Size(360, 30)
     $button7.Add_Click({
