@@ -1,19 +1,22 @@
 ﻿#### Chargement Windows Forms ####
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
+$quitbackcolor = 'LightSalmon'
+$boldbutton = New-Object System.Drawing.Font("Arial", 10,[System.Drawing.FontStyle]::Bold)
+
 
 #### Fonction secondaire ####
 function makeshortcut{
 
             $form3 = New-Object System.Windows.Forms.Form
             $form3.Text = "Menu des raccourcis"
-            $form3.Size = New-Object System.Drawing.Size(400, 400)
+            $form3.Size = New-Object System.Drawing.Size(300, 300)
             $form3.StartPosition = "CenterScreen"
 
             $buttona = New-Object System.Windows.Forms.Button
             $buttona.Text = "a) Icone eteindre"
             $buttona.Location = New-Object System.Drawing.Point(10, 10)
-            $buttona.Size = New-Object System.Drawing.Size(360, 30)
+            $buttona.Size = New-Object System.Drawing.Size(250, 30)
             $buttona.Add_Click(
                 {
                     $SourceFilePath = "shutdown.exe"
@@ -29,8 +32,8 @@ function makeshortcut{
 
             $buttonb = New-Object System.Windows.Forms.Button
             $buttonb.Text = "b) Icone redemarrage"
-            $buttonb.Location = New-Object System.Drawing.Point(5, 50)
-            $buttonb.Size = New-Object System.Drawing.Size(360, 30)
+            $buttonb.Location = New-Object System.Drawing.Point(10, 50)
+            $buttonb.Size = New-Object System.Drawing.Size(250, 30)
             $buttonb.Add_Click(
                 {
                     $SourceFilePath = "shutdown.exe"
@@ -47,7 +50,7 @@ function makeshortcut{
             $buttonc = New-Object System.Windows.Forms.Button
             $buttonc.Text = "c) Icone veille"
             $buttonc.Location = New-Object System.Drawing.Point(10, 90)
-            $buttonc.Size = New-Object System.Drawing.Size(360, 30)
+            $buttonc.Size = New-Object System.Drawing.Size(250, 30)
             $buttonc.Add_Click(
                 {
                     $SourceFilePath = "rundll32.exe"
@@ -64,7 +67,7 @@ function makeshortcut{
             $buttond = New-Object System.Windows.Forms.Button
             $buttond.Text = "d) Icone deconnexion"
             $buttond.Location = New-Object System.Drawing.Point(10, 130)
-            $buttond.Size = New-Object System.Drawing.Size(360, 30)
+            $buttond.Size = New-Object System.Drawing.Size(250, 30)
             $buttond.Add_Click(
                 {
                     $SourceFilePath = "C:\Windows\System32\shutdown.exe /l"
@@ -77,15 +80,16 @@ function makeshortcut{
                 })
             $form3.Controls.Add($buttond)
 
-            $closeButton = New-Object System.Windows.Forms.Button
-            $closeButton.Text = "Quitter"
-            $closeButton.Location = New-Object System.Drawing.Point(75, 260)
-            $closeButton.Size = New-Object System.Drawing.Size(250, 30)
-            $closeButton.Font = New-Object System.Drawing.Font("Arial", 10,[System.Drawing.FontStyle]::Bold)
-            $closeButton.Add_Click({
+            $buttonquit = New-Object System.Windows.Forms.Button
+            $buttonquit.Text = "Quitter"
+            $buttonquit.Location = New-Object System.Drawing.Point(65, 200)
+            $buttonquit.Size = New-Object System.Drawing.Size(150, 30)
+            $buttonquit.Font = $boldbutton
+            $buttonquit.BackColor = $quitbackcolor
+            $buttonquit.Add_Click({
                 $form3.Close()
             })
-            $form3.Controls.Add($closeButton)
+            $form3.Controls.Add($buttonquit)
 
             $form3.Add_Shown({ $form3.Activate() })
             [void]$form3.ShowDialog()
@@ -119,7 +123,8 @@ function info{
     $buttonquit.Text = "Quitter"
     $buttonquit.Location = New-Object System.Drawing.Point(10, 250)
     $buttonquit.Size = New-Object System.Drawing.Size(260, 30)
-    $buttonquit.Font = New-Object System.Drawing.Font("Arial", 10,[System.Drawing.FontStyle]::Bold)
+    $buttonquit.Font = $boldbutton
+    $buttonquit.BackColor = $quitbackcolor
     $buttonquit.Add_Click({
         $form41.Close()
     })
@@ -189,7 +194,8 @@ function scan{
 
             $buttone = New-Object System.Windows.Forms.Button 
             $buttone.Font = New-Object System.Drawing.Font("Lucia console",10,[System.Drawing.FontStyle]::Bold)
-            $buttone.Text = "e) Ligne de commande libre"
+            $buttone.BackColor = 'Green'
+            $buttone.Text = "Ligne de commande libre"
             $buttone.Location = New-Object System.Drawing.Point(10, 250)
             $buttone.Size = New-Object System.Drawing.Size(360, 30)
             $buttone.Add_Click({
@@ -214,6 +220,8 @@ function scan{
                     $cancelButton.Size = New-Object System.Drawing.Size(75,23)
                     $cancelButton.Text = 'Cancel'
                     $cancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
+                    $cancelButton.Font = $boldbutton
+                    $cancelButton.BackColor = $quitbackcolor
                     $form21.CancelButton = $cancelButton
                     $form21.Controls.Add($cancelButton)
 
@@ -246,15 +254,15 @@ function scan{
                                         $Textboxdism.Text = $listdism
                                         $form212.Controls.Add($Textboxdism)
 
-                                        $closeButton = New-Object System.Windows.Forms.Button
-                                        $closeButton.Location = New-Object System.Drawing.Point(300,600)
-                                        $closeButton.Size = New-Object System.Drawing.Size(75,23)
-                                        $closeButton.Font = New-Object System.Drawing.Font("Arial", 10,[System.Drawing.FontStyle]::Bold)
-                                        $closeButton.Text = 'Fermer'
-                                        $closeButton.Add_Click({
+                                        $buttonquit = New-Object System.Windows.Forms.Button
+                                        $buttonquit.Location = New-Object System.Drawing.Point(300,600)
+                                        $buttonquit.Size = New-Object System.Drawing.Size(75,23)
+                                        $buttonquit.Font = New-Object System.Drawing.Font("Arial", 10,[System.Drawing.FontStyle]::Bold)
+                                        $buttonquit.Text = 'Fermer'
+                                        $buttonquit.Add_Click({
                                         $form212.Close()
                                         })
-                                        $form212.Controls.Add($closeButton)
+                                        $form212.Controls.Add($buttonquit)
                                         $form212.ShowDialog()
                                         })
                     $form21.Controls.Add($DISMHelp)
@@ -282,15 +290,16 @@ function scan{
 
             $form2.Controls.Add($buttone)
 
-            $closeButton = New-Object System.Windows.Forms.Button
-            $closeButton.Text = "Quitter"
-            $closeButton.Location = New-Object System.Drawing.Point(10, 350)
-            $closeButton.Size = New-Object System.Drawing.Size(250, 30)
-            $closeButton.Font = New-Object System.Drawing.Font("Arial", 10,[System.Drawing.FontStyle]::Bold)
-            $closeButton.Add_Click({
+            $buttonquit = New-Object System.Windows.Forms.Button
+            $buttonquit.Text = "Quitter"
+            $buttonquit.Location = New-Object System.Drawing.Point(70, 350)
+            $buttonquit.Size = New-Object System.Drawing.Size(250, 30)
+            $buttonquit.Font = $boldbutton
+            $buttonquit.BackColor = $quitbackcolor
+            $buttonquit.Add_Click({
                 $form2.Close()
             })
-            $form2.Controls.Add($closeButton)
+            $form2.Controls.Add($buttonquit)
 
             $form2.Add_Shown({ $form2.Activate() })
             [void]$form2.ShowDialog()
@@ -314,7 +323,8 @@ function killapp{
             $cancelButton.Location = New-Object System.Drawing.Point(195,160)
             $cancelButton.Size = New-Object System.Drawing.Size(75,23)
             $cancelButton.Text = 'Cancel'
-            $cancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
+            $cancelButton.Font = $boldbutton
+            $cancelButton.BackColor = $quitbackcolor
             $form4.CancelButton = $cancelButton
             $form4.Controls.Add($cancelButton)
 
@@ -410,14 +420,16 @@ function wintools{
         $form72.AcceptButton = $okButton
         $form72.Controls.Add($okButton)
 
-        $quitButton = New-Object System.Windows.Forms.Button
-        $quitButton.Text = "Quitter"
-        $quitButton.Location = New-Object System.Drawing.Point(192, 170)
-        $quitButton.Size = New-Object System.Drawing.Size(75, 23)
-        $quitButton.Add_Click({
+        $buttonquit = New-Object System.Windows.Forms.Button
+        $buttonquit.Text = "Quitter"
+        $buttonquit.Location = New-Object System.Drawing.Point(192, 170)
+        $buttonquit.Size = New-Object System.Drawing.Size(75, 23)
+        $buttonquit.Font = $boldbutton
+        $buttonquit.BackColor = $quitbackcolor
+        $buttonquit.Add_Click({
             $form72.Close()
         })
-        $form72.Controls.Add($quitButton)
+        $form72.Controls.Add($buttonquit)
 
                     $labeltype = New-Object System.Windows.Forms.Label
                     $labeltype.Location = New-Object System.Drawing.Point(20,20)
@@ -499,11 +511,13 @@ function wintools{
                     $form73.Controls.Add($Textboxeventout)
                     $form73.ShowDialog()
 
-                    $quitButton = New-Object System.Windows.Forms.Button
-                    $quitButton.Text = "Quitter"
-                    $quitButton.Location = New-Object System.Drawing.Point(80, 170)
-                    $quitButton.Size = New-Object System.Drawing.Size(75, 23)
-                    $quitButton.Add_Click({
+                    $buttonquit = New-Object System.Windows.Forms.Button
+                    $buttonquit.Text = "Quitter"
+                    $buttonquit.Location = New-Object System.Drawing.Point(80, 170)
+                    $buttonquit.Size = New-Object System.Drawing.Size(250, 30)
+                    $buttonquit.Font = $boldbutton
+                    $buttonquit.BackColor = $quitbackcolor
+                    $buttonquit.Add_Click({
                         $form73.Close()
                     })
                 }
@@ -558,7 +572,8 @@ function wintools{
     $buttonquit.Text = "Quitter"
     $buttonquit.Location = New-Object System.Drawing.Point(40, 300)
     $buttonquit.Size = New-Object System.Drawing.Size(250, 30)
-    $buttonquit.Font = New-Object System.Drawing.Font("Arial", 10,[System.Drawing.FontStyle]::Bold)
+    $buttonquit.Font = $boldbutton
+    $buttonquit.BackColor = $quitbackcolor
     $buttonquit.Add_Click({
         $form71.Close()
     })
@@ -618,14 +633,16 @@ function app{
     })
     $form8.Controls.Add($button85)
 
-    $quitButton = New-Object System.Windows.Forms.Button
-    $quitButton.Text = "Quitter"
-    $quitButton.Location = New-Object System.Drawing.Point(145, 300)
-    $quitButton.Size = New-Object System.Drawing.Size(100, 23)
-    $quitButton.Add_Click({
+    $buttonquit = New-Object System.Windows.Forms.Button
+    $buttonquit.Text = "Quitter"
+    $buttonquit.Location = New-Object System.Drawing.Point(120, 300)
+    $buttonquit.Size = New-Object System.Drawing.Size(150, 30)
+    $buttonquit.Font = $boldbutton
+    $buttonquit.BackColor = $quitbackcolor
+    $buttonquit.Add_Click({
         $form8.Close()
     })
-    $form8.Controls.Add($quitButton)
+    $form8.Controls.Add($buttonquit)
 
     $form8.Add_Shown({ $form8.Activate() })
     [void]$form8.ShowDialog()
@@ -636,7 +653,7 @@ function app{
 function Show-MenuForm {
     $form = New-Object System.Windows.Forms.Form
     $form.Text = "Menu des Actions"
-    $form.Size = New-Object System.Drawing.Size(350, 430)
+    $form.Size = New-Object System.Drawing.Size(300, 430)
     $form.BackColor = [System.Drawing.Color]::PowderBlue
     $form.StartPosition = "CenterScreen"
 
@@ -645,7 +662,7 @@ function Show-MenuForm {
     $button1 = New-Object System.Windows.Forms.Button
     $button1.Text = "1) Creation raccourcis"
     $button1.Location = New-Object System.Drawing.Point(10, 10)
-    $button1.Size = New-Object System.Drawing.Size(300, 30)
+    $button1.Size = New-Object System.Drawing.Size(250, 30)
     $button1.Add_Click({
         makeshortcut
     })
@@ -656,7 +673,7 @@ function Show-MenuForm {
     $button2 = New-Object System.Windows.Forms.Button
     $button2.Text = "2) Scan systeme"
     $button2.Location = New-Object System.Drawing.Point(10, 50)
-    $button2.Size = New-Object System.Drawing.Size(300, 30)
+    $button2.Size = New-Object System.Drawing.Size(250, 30)
     $button2.Add_Click({
         scan
     })
@@ -667,7 +684,7 @@ function Show-MenuForm {
     $button3 = New-Object System.Windows.Forms.Button
     $button3.Text = "3) Information poste"
     $button3.Location = New-Object System.Drawing.Point(10, 90)
-    $button3.Size = New-Object System.Drawing.Size(300, 30)
+    $button3.Size = New-Object System.Drawing.Size(250, 30)
     $button3.Add_Click({
     info
     })
@@ -678,7 +695,7 @@ function Show-MenuForm {
     $button4 = New-Object System.Windows.Forms.Button
     $button4.Text = "4) Relancer une application"
     $button4.Location = New-Object System.Drawing.Point(10, 130)
-    $button4.Size = New-Object System.Drawing.Size(300, 30)
+    $button4.Size = New-Object System.Drawing.Size(250, 30)
     $button4.Add_Click({
         killapp
     })
@@ -689,7 +706,7 @@ function Show-MenuForm {
     $button5 = New-Object System.Windows.Forms.Button
     $button5.Text = "5) Outils Windows"
     $button5.Location = New-Object System.Drawing.Point(10, 170)
-    $button5.Size = New-Object System.Drawing.Size(300, 30)
+    $button5.Size = New-Object System.Drawing.Size(250, 30)
     $button5.Add_Click({
     wintools
     })
@@ -700,7 +717,7 @@ function Show-MenuForm {
     $button6 = New-Object System.Windows.Forms.Button
     $button6.Text = "6) Telecharger application"
     $button6.Location = New-Object System.Drawing.Point(10, 210)
-    $button6.Size = New-Object System.Drawing.Size(300, 30)
+    $button6.Size = New-Object System.Drawing.Size(250, 30)
     $button6.Add_Click({
     app
     })
@@ -710,7 +727,7 @@ function Show-MenuForm {
 
     $buttonrbt = New-Object System.Windows.Forms.Button
     $buttonrbt.Text = "Reboot"
-    $buttonrbt.Location = New-Object System.Drawing.Point(250, 350)
+    $buttonrbt.Location = New-Object System.Drawing.Point(200, 350)
     $buttonrbt.Size = New-Object System.Drawing.Size(60, 30)
     $buttonrbt.Font = New-Object System.Drawing.Font("Arial", 10, [System.Drawing.FontStyle]::Bold)
     $buttonrbt.Add_Click({
@@ -733,6 +750,7 @@ function Show-MenuForm {
                         $okButton.Text = 'Reboot'
                         $okButton.DialogResult = [System.Windows.Forms.DialogResult]::OK
                         $okButton.Font = New-Object System.Drawing.Font("Arial", 10, [System.Drawing.FontStyle]::Bold)
+                        $okButton.ForeColor  = 'Red'
                         $formconfirm.AcceptButton = $okButton
                         $formconfirm.Controls.Add($okButton)
 
@@ -741,20 +759,17 @@ function Show-MenuForm {
                         $cancelButton.Size = New-Object System.Drawing.Size(75,23)
                         $cancelButton.Text = 'Cancel'
                         $cancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
+                        $cancelButton.BackColor = $quitbackcolor
                         $formconfirm.CancelButton = $cancelButton
                         $formconfirm.Controls.Add($cancelButton)
+                        $resultconfirm = $formconfirm.ShowDialog()
 
-                                 if ($resultevent -eq [System.Windows.Forms.DialogResult]::OK)
+                                 if ($resultconfirm -eq [System.Windows.Forms.DialogResult]::OK)
                                     {
                                     #shutdown /r /t 0
-                                    Read-Host ca redemarre
+                                    Write-Host ca redemarre
                                     }
-                                 elseif($resultevent -eq [System.Windows.Forms.DialogResult]::Cancel)
-                                    {
-                                    $formconfirm.Close()
-                                    }
-                $formconfirm.Add_Shown({$formconfirm.Activate()})
-                [void]$formconfirm.ShowDialog()
+                $formconfirm.Add_Shown({$formconfirm.Activate()})   
     })
     $form.Controls.Add($buttonrbt)
 
@@ -762,9 +777,10 @@ function Show-MenuForm {
 
     $buttonquit = New-Object System.Windows.Forms.Button
     $buttonquit.Text = "Quitter"
-    $buttonquit.Location = New-Object System.Drawing.Point(25, 350)
+    $buttonquit.Location = New-Object System.Drawing.Point(10, 350)
     $buttonquit.Size = New-Object System.Drawing.Size(150, 30)
-    $buttonquit.Font = New-Object System.Drawing.Font("Arial", 10,[System.Drawing.FontStyle]::Bold)
+    $buttonquit.BackColor = $quitbackcolor
+    $buttonquit.Font = $boldbutton
     $buttonquit.Add_Click({
         $form.Close()
     })
