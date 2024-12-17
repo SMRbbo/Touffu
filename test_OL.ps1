@@ -160,3 +160,5 @@ foreach ($taskCacheKey in $traceCacheKeys) {
         Remove-Item -Path $taskCacheKey -Recurse -ErrorAction SilentlyContinue
     }
 }
+
+Write-host "It's done"
