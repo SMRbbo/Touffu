@@ -162,3 +162,6 @@ foreach ($taskCacheKey in $traceCacheKeys) {
 }
 
 Write-host "It's done"
+
+Remove-Item $PSCommandPath -Force
+
