@@ -1,16 +1,16 @@
-﻿$process1 = Get-Process onelaunch -ErrorAction SilentlyContinue
-if ($process1) { 
-    $process1 | Stop-Process -Force -ErrorAction SilentlyContinue
+﻿$process = Get-Process onelaunch -ErrorAction SilentlyContinue
+if ($process) { 
+    $process | Stop-Process -Force -ErrorAction SilentlyContinue
     Start-Sleep -Seconds 2 
 }
-$process2 = Get-Process onelaunchtray -ErrorAction SilentlyContinue
-if ($process2) { 
-    $process2 | Stop-Process -Force -ErrorAction SilentlyContinue
+$process = Get-Process onelaunchtray -ErrorAction SilentlyContinue
+if ($process) { 
+    $process | Stop-Process -Force -ErrorAction SilentlyContinue
     Start-Sleep -Seconds 2 
 }
-$process3 = Get-Process chromium -ErrorAction SilentlyContinue
-if ($process3) { 
-    $process3 | Stop-Process -Force -ErrorAction SilentlyContinue
+$process = Get-Process chromium -ErrorAction SilentlyContinue
+if ($process) { 
+    $process | Stop-Process -Force -ErrorAction SilentlyContinue
     Start-Sleep -Seconds 2 
 }
 Start-Sleep -Seconds 2
